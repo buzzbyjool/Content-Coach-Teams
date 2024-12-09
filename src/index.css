@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #5DB6BB;
+  --primary-dark: #4A9296;
+}
+
+body {
+  @apply antialiased text-gray-900 bg-gradient-to-br from-gray-50/40 to-[#5DB6BB]/10;
+}
+
+/* Glass morphism effects */
+.glass {
+  @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-xl;
+}
+
+.glass-dark {
+  @apply bg-gray-900/70 backdrop-blur-lg border border-gray-800/20 shadow-xl;
+}
+
+.glass-hover {
+  @apply transition-all duration-300 hover:bg-white/80 hover:shadow-2xl hover:scale-[1.02];
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300/50 rounded-full hover:bg-gray-400/50 transition-colors;
+}
+
+/* Enhanced input fields */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+input[type="search"],
+select,
+textarea {
+  @apply px-4 py-2.5 bg-white/70 backdrop-blur-sm border-gray-200/80 focus:border-teal-500/50 focus:ring-teal-500/50 transition-all duration-200;
+}
+
+/* Button animations */
+.btn-primary {
+  @apply inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#5DB6BB] to-[#4A9296] text-white rounded-lg 
+         shadow-lg shadow-[#5DB6BB]/20 hover:shadow-xl hover:shadow-[#5DB6BB]/30 
+         transform transition-all duration-200 hover:-translate-y-0.5;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm text-gray-700 rounded-lg 
+         border border-gray-200/80 shadow-sm hover:bg-white hover:shadow-md 
+         transform transition-all duration-200 hover:-translate-y-0.5;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white/80 backdrop-blur-sm rounded-xl shadow-xl border border-white/20 
+         transition-all duration-300 hover:shadow-2xl hover:bg-white/90;
+}
+
+/* Navigation styles */
+.nav-link {
+  @apply p-2 text-gray-600 hover:text-[#5DB6BB] rounded-full hover:bg-[#5DB6BB]/10 
+         transition-all duration-200 transform hover:scale-110;
+}
+
+/* Table header specific styling */
+th {
+  @apply font-medium text-gray-500 uppercase tracking-wider bg-gray-50/50 backdrop-blur-sm;
+}
+
+/* Table cell content alignment */
+td {
+  @apply align-middle;
+}
+
+/* Form labels spacing */
+label {
+  @apply mb-1.5 inline-block text-gray-700 font-medium;
+}
+
+/* New Company Coach button animation */
+@keyframes pulse-gradient {
+  0% {
+    background-position: 0% 50%;
+    transform: scale(1);
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: scale(1.02);
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: scale(1);
+  }
+}
+
+.new-coach-button {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-lg text-white 
+         shadow-lg shadow-[#5DB6BB]/20 hover:shadow-xl hover:shadow-[#5DB6BB]/30 
+         transform transition-all duration-300;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  background-size: 200% 200%;
+  animation: pulse-gradient 3s ease-in-out infinite;
+}
+
+.new-coach-button:hover {
+  @apply opacity-90;
+  animation-play-state: paused;
+}
+
+/* Title animations */
+@keyframes gradient-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-title {
+  background-size: 200% auto;
+  animation: gradient-shimmer 3s ease infinite;
+}

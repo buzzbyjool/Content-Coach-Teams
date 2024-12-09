@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: content-coach-webhook
+    env: node
+    buildCommand: npm install && tsc src/server/webhook.ts --outDir dist --esModuleInterop true --module commonjs --target es2020
+    startCommand: node dist/server/webhook.js
+    envVars:
+      - key: FIREBASE_PROJECT_ID
+        sync: false
+      - key: FIREBASE_CLIENT_EMAIL
+        sync: false
+      - key: FIREBASE_PRIVATE_KEY
+        sync: false
+      - key: PORT
+        value: 3000
